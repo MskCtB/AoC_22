@@ -17,10 +17,10 @@ int main()
 			elf_cal += stoi(dump);
 		}
 		else {
-			if (elf_cal > top1) {
-				top3 = top2;
-				top2 = top1;
-				top1 = elf_cal;
+			if (elf_cal > top3) {
+				top3 = top2 <= elf_cal ? top2 : elf_cal;
+				top2 = top1 <= elf_cal ? top1 : (top2 >= elf_cal ? top2 : elf_cal);
+				top1 = top1 <  elf_cal ? elf_cal : top1;
 			}
 			elf_cal = 0;
 		}
